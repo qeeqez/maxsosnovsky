@@ -18,8 +18,8 @@ const CSP_DIRECTIVES = [
 const ROOT_META = [
   {charSet: "utf-8"},
   {name: "viewport", content: "width=device-width, initial-scale=1"},
-  {title: "Max Sosnovsky — Software Engineer"},
-  {name: "description", content: "Personal website, projects, and portfolio of Max Sosnovsky."},
+  {title: "Max Sosnovsky — Founder & CEO"},
+  {name: "description", content: "Personal website, projects, and work of Max Sosnovsky."},
   {name: "theme-color", content: "#09090b"},
   {name: "robots", content: "index, follow"},
   {"http-equiv": "Content-Security-Policy", content: CSP_DIRECTIVES},
@@ -52,7 +52,7 @@ function buildStructuredData() {
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
         name: "Max Sosnovsky",
-        description: "Personal website and developer portfolio.",
+        description: "Personal website, projects, and work of Max Sosnovsky.",
         publisher: {
           "@id": `${SITE_URL}/#person`,
         },

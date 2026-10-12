@@ -1,10 +1,9 @@
 # Max Sosnovsky
 
-> Software Engineer & Systems Architect
+> Founder & CEO
 
-Building high-performance web applications, developer tooling, and distributed systems with a focus on type safety, clean architecture, and user experience.
+Building high-performance technology platforms, developer systems, and next-generation infrastructure.
 
-- **Status**: Available for new projects & collaborations
 - **GitHub**: [https://github.com/qeeqez](https://github.com/qeeqez)
 
 ## Featured Projects
