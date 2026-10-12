@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import {createFileRoute} from "@tanstack/react-router";
 
-export const Route = createFileRoute("/")({ component: App });
+export const Route = createFileRoute("/")({component: App});
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
           Start simple, ship quickly.
         </h1>
         <p className="mb-8 max-w-2xl text-base text-[var(--sea-ink-soft)] sm:text-lg">
-          This base starter intentionally keeps things light: two routes, clean structure, and the
-          essentials you need to build from scratch.
+          This base starter intentionally keeps things light: two routes, clean structure, and the essentials you need to build from
+          scratch.
         </p>
         <div className="flex flex-wrap gap-3">
           <a
@@ -44,7 +44,7 @@ function App() {
           <article
             key={title}
             className="island-shell feature-card rise-in rounded-2xl p-5"
-            style={{ animationDelay: `${index * 90 + 80}ms` }}
+            style={{animationDelay: `${index * 90 + 80}ms`}}
           >
             <h2 className="mb-2 text-base font-semibold text-[var(--sea-ink)]">{title}</h2>
             <p className="m-0 text-sm text-[var(--sea-ink-soft)]">{desc}</p>
@@ -59,12 +59,10 @@ function App() {
             Edit <code>src/routes/index.tsx</code> to customize the home page.
           </li>
           <li>
-            Update <code>src/components/Header.tsx</code> and <code>src/components/Footer.tsx</code>{" "}
-            for brand links.
+            Update <code>src/components/Header.tsx</code> and <code>src/components/Footer.tsx</code> for brand links.
           </li>
           <li>
-            Add routes in <code>src/routes</code> and tweak visual tokens in{" "}
-            <code>src/styles.css</code>.
+            Add routes in <code>src/routes</code> and tweak visual tokens in <code>src/styles.css</code>.
           </li>
         </ul>
       </section>

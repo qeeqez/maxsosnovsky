@@ -1,6 +1,6 @@
-import { HeadContent, Link, Scripts, createRootRoute } from "@tanstack/react-router";
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import { TanStackDevtools } from "@tanstack/react-devtools";
+import {HeadContent, Link, Scripts, createRootRoute} from "@tanstack/react-router";
+import {TanStackRouterDevtoolsPanel} from "@tanstack/react-router-devtools";
+import {TanStackDevtools} from "@tanstack/react-devtools";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -37,9 +37,7 @@ function NotFound() {
   return (
     <main className="page-wrap px-4 py-16 text-center">
       <h1 className="text-4xl font-bold text-[var(--sea-ink)] mb-4">404 - Page Not Found</h1>
-      <p className="text-[var(--sea-ink-soft)] mb-8">
-        The page you are looking for does not exist.
-      </p>
+      <p className="text-[var(--sea-ink-soft)] mb-8">The page you are looking for does not exist.</p>
       <Link
         to="/"
         className="rounded-full border border-[rgba(50,143,151,0.3)] bg-[rgba(79,184,178,0.14)] px-5 py-2.5 text-sm font-semibold text-[var(--lagoon-deep)] no-underline transition hover:bg-[rgba(79,184,178,0.24)]"
@@ -50,11 +48,11 @@ function NotFound() {
   );
 }
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootDocument({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{__html: THEME_INIT_SCRIPT}} />
         <HeadContent />
       </head>
       <body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(79,184,178,0.24)]">
