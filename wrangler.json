@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "maxsosnovsky-com",
+  "name": "maxsosnovsky",
   "compatibility_date": "2026-10-12",
   "assets": {
     "directory": "./dist/client",
