@@ -1,4 +1,3 @@
-import aboutContent from "./about.md?raw";
 import indexContent from "./index.md?raw";
 
 export interface MarkdownPage {
@@ -14,15 +13,8 @@ export const PAGES: readonly MarkdownPage[] = [
     path: "/",
     markdownPath: "/index.md",
     title: "Home",
-    description: "TanStack Start Base Template overview and features.",
+    description: "Max Sosnovsky - Personal website and developer portfolio.",
     content: indexContent,
-  },
-  {
-    path: "/about",
-    markdownPath: "/about.md",
-    title: "About",
-    description: "About this starter, tech stack, and architecture.",
-    content: aboutContent,
   },
 ] as const;
 
@@ -39,7 +31,7 @@ export function generateLlmsTxt(siteUrl: string): string {
 
   return `# Max Sosnovsky
 
-> Personal website and developer portfolio built with TanStack Start.
+> Personal website and developer portfolio.
 
 ## Pages
 ${pageEntries}

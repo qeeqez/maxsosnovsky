@@ -1,11 +1,4 @@
-import {HeadContent, Link, Scripts, createRootRoute} from "@tanstack/react-router";
-import {TanStackRouterDevtoolsPanel} from "@tanstack/react-router-devtools";
-import {TanStackDevtools} from "@tanstack/react-devtools";
-import {cn} from "cn";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-
-import appCss from "../styles.css?url";
+import {HeadContent, Scripts, createRootRoute} from "@tanstack/react-router";
 
 const SITE_URL = process.env.SITE_URL || "https://maxsosnovsky.com";
 
@@ -17,8 +10,6 @@ const CSP_DIRECTIVES = [
   "font-src 'self' data:",
   "connect-src 'self'",
 ].join("; ");
-
-const THEME_INIT_SCRIPT = `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'auto';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`;
 
 const ROOT_META = [
   {charSet: "utf-8"},
@@ -36,7 +27,6 @@ const ROOT_LINKS = [
   {rel: "apple-touch-icon", href: "/apple-icon.png"},
   {rel: "mask-icon", href: "/mask-icon.svg", color: "#000000"},
   {rel: "manifest", href: "/manifest.json"},
-  {rel: "stylesheet", href: appCss},
   {rel: "sitemap", type: "application/xml", href: "/sitemap.xml"},
   {rel: "alternate", type: "text/plain", href: "/llms.txt", title: "LLMs.txt"},
   {rel: "alternate", type: "text/plain", href: "/llms-full.txt", title: "LLMs-full.txt"},
@@ -66,7 +56,7 @@ function buildStructuredData() {
         "@id": `${SITE_URL}/#person`,
         name: "Max Sosnovsky",
         url: SITE_URL,
-        sameAs: ["https://github.com/qeeqez", "https://x.com/tan_stack"],
+        sameAs: ["https://github.com/qeeqez"],
       },
     ],
   };
@@ -96,44 +86,22 @@ export const Route = createRootRoute({
 
 function NotFound() {
   return (
-    <main className="page-wrap px-4 py-16 text-center">
-      <h1 className="mb-4 text-4xl font-bold text-[var(--sea-ink)]">404 - Page Not Found</h1>
-      <p className="mb-8 text-[var(--sea-ink-soft)]">The page you are looking for does not exist.</p>
-      <Link
-        to="/"
-        className={cn(
-          "rounded-full border border-[rgba(50,143,151,0.3)] bg-[rgba(79,184,178,0.14)]",
-          "px-5 py-2.5 text-sm font-semibold text-[var(--lagoon-deep)] no-underline transition hover:bg-[rgba(79,184,178,0.24)]"
-        )}
-      >
-        Back to Home
-      </Link>
+    <main>
+      <h1>404 - Page Not Found</h1>
+      <p>The page you are looking for does not exist.</p>
+      <a href="/">Back to Home</a>
     </main>
   );
 }
 
 function RootDocument({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{__html: THEME_INIT_SCRIPT}} />
         <HeadContent />
       </head>
-      <body className={cn("font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(79,184,178,0.24)]")}>
-        <Header />
+      <body>
         {children}
-        <Footer />
-        <TanStackDevtools
-          config={{
-            position: "bottom-right",
-          }}
-          plugins={[
-            {
-              name: "Tanstack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
         <Scripts />
       </body>
     </html>
