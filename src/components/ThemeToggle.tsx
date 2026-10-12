@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {cn} from "cn";
 
 type ThemeMode = "light" | "dark" | "auto";
 
@@ -31,7 +32,7 @@ function applyThemeMode(mode: ThemeMode) {
   document.documentElement.style.colorScheme = resolved;
 }
 
-export default function ThemeToggle() {
+export default function ThemeToggle({className}: {className?: string} = {}) {
   const [mode, setMode] = useState<ThemeMode>(getInitialMode);
 
   useEffect(() => {
@@ -68,7 +69,10 @@ export default function ThemeToggle() {
       onClick={toggleMode}
       aria-label={label}
       title={label}
-      className="rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] px-3 py-1.5 text-sm font-semibold text-[var(--sea-ink)] shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5"
+      className={cn(
+        "rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] px-3 py-1.5 text-sm font-semibold text-[var(--sea-ink)] shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5",
+        className
+      )}
     >
       {mode === "auto" ? "Auto" : mode === "dark" ? "Dark" : "Light"}
     </button>
