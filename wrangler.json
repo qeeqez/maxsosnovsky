@@ -2,8 +2,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "maxsosnovsky",
   "compatibility_date": "2026-10-12",
+  "preview_urls": true,
+  "previews": {},
   "assets": {
     "directory": "./dist/client",
+    "html_handling": "auto-trailing-slash",
     "not_found_handling": "single-page-application"
   }
 }
