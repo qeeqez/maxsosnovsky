@@ -7,13 +7,26 @@ import Header from "../components/Header";
 
 import appCss from "../styles.css?url";
 
+const SITE_URL = process.env.SITE_URL || "https://maxsosnovsky.com";
+
+const CSP_DIRECTIVES = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https:",
+  "font-src 'self' data:",
+  "connect-src 'self'",
+].join("; ");
+
 const THEME_INIT_SCRIPT = `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'auto';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`;
 
 const ROOT_META = [
   {charSet: "utf-8"},
   {name: "viewport", content: "width=device-width, initial-scale=1"},
   {title: "Max Sosnovsky"},
+  {name: "theme-color", content: "#0f2027"},
   {name: "robots", content: "index, follow"},
+  {"http-equiv": "Content-Security-Policy", content: CSP_DIRECTIVES},
 ];
 
 const ROOT_LINKS = [
@@ -29,11 +42,21 @@ const ROOT_LINKS = [
   {rel: "alternate", type: "text/plain", href: "/llms-full.txt", title: "LLMs-full.txt"},
 ];
 
+function buildCanonicalUrl(pathname: string): string {
+  const normalized = pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+  return `${SITE_URL}${normalized === "/" ? "/" : normalized}`;
+}
+
 export const Route = createRootRoute({
-  head: () => ({
-    meta: ROOT_META,
-    links: ROOT_LINKS,
-  }),
+  head: ({matches}) => {
+    const pathname = matches[matches.length - 1]?.pathname ?? "/";
+    const canonicalUrl = buildCanonicalUrl(pathname);
+
+    return {
+      meta: ROOT_META,
+      links: [{rel: "canonical", href: canonicalUrl}, ...ROOT_LINKS],
+    };
+  },
   notFoundComponent: NotFound,
   shellComponent: RootDocument,
 });
