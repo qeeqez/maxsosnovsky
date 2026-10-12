@@ -24,9 +24,62 @@ const config = defineConfig({
     ignorePatterns: ["routeTree.gen.ts"],
   },
   lint: {
-    jsPlugins: [{name: "vite-plus", specifier: "vite-plus/oxlint-plugin"}],
-    rules: {"vite-plus/prefer-vite-plus-imports": "error"},
-    options: {typeAware: true, typeCheck: true},
+    plugins: ["react", "react-perf", "typescript", "jsx-a11y"],
+    categories: {
+      correctness: "error",
+    },
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "jsx-a11y/prefer-tag-over-role": "off",
+      "react/exhaustive-deps": "off",
+      "typescript/no-explicit-any": "warn",
+      "typescript/no-restricted-types": [
+        "error",
+        {
+          types: {
+            unknown: "Use explicit domain types or UntrustedValue/UntrustedRecord at untrusted boundaries.",
+          },
+        },
+      ],
+      "eslint/complexity": [
+        "error",
+        {
+          max: 10,
+        },
+      ],
+      "eslint/max-lines-per-function": [
+        "error",
+        {
+          max: 50,
+          skipComments: true,
+        },
+      ],
+      "eslint/max-lines": [
+        "error",
+        {
+          max: 250,
+          skipBlankLines: true,
+          skipComments: true,
+        },
+      ],
+      "eslint/max-params": ["error", 3],
+      "eslint/max-depth": ["error", 3],
+      "eslint/max-statements": ["error", 25],
+      "eslint/max-classes-per-file": ["error", 1],
+      "oxc/branches-sharing-code": "warn",
+      "vite-plus/prefer-vite-plus-imports": "error",
+    },
+    ignorePatterns: ["*.html", "docker", "public", "**tests**", "*.test.ts", "*.test.tsx", "src/test/**", "routeTree.gen.ts"],
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+    jsPlugins: [
+      {
+        name: "vite-plus",
+        specifier: "vite-plus/oxlint-plugin",
+      },
+    ],
   },
   resolve: {tsconfigPaths: true},
   plugins: lazyPlugins(() => [
