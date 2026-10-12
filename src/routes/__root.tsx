@@ -47,6 +47,33 @@ function buildCanonicalUrl(pathname: string): string {
   return `${SITE_URL}${normalized === "/" ? "/" : normalized}`;
 }
 
+function buildStructuredData() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: "Max Sosnovsky",
+        description: "Personal website and developer portfolio.",
+        publisher: {
+          "@id": `${SITE_URL}/#person`,
+        },
+      },
+      {
+        "@type": "Person",
+        "@id": `${SITE_URL}/#person`,
+        name: "Max Sosnovsky",
+        url: SITE_URL,
+        sameAs: ["https://github.com/qeeqez", "https://x.com/tan_stack"],
+      },
+    ],
+  };
+
+  return JSON.stringify(structuredData);
+}
+
 export const Route = createRootRoute({
   head: ({matches}) => {
     const pathname = matches[matches.length - 1]?.pathname ?? "/";
@@ -55,6 +82,12 @@ export const Route = createRootRoute({
     return {
       meta: ROOT_META,
       links: [{rel: "canonical", href: canonicalUrl}, ...ROOT_LINKS],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: buildStructuredData(),
+        },
+      ],
     };
   },
   notFoundComponent: NotFound,
