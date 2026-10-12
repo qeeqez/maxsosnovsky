@@ -92,6 +92,9 @@ const config = defineConfig({
         autoStaticPathsDiscovery: true,
         crawlLinks: true,
       },
+      sitemap: {
+        host: process.env.SITE_URL || "https://maxsosnovsky.com",
+      },
     }),
     viteReact(),
   ]),
