@@ -8,20 +8,23 @@ export default function Navbar() {
           <img src="/favicon.svg" alt="Max Sosnovsky Logo" className="h-6 w-6 dark:invert" />
           <span>Max Sosnovsky</span>
         </Link>
-        <nav className="flex items-center gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
-          <a href="#projects" className="transition hover:text-zinc-900 dark:hover:text-zinc-100">
-            Projects
-          </a>
-          <a href="#skills" className="transition hover:text-zinc-900 dark:hover:text-zinc-100">
-            Skills
-          </a>
+        <nav className="flex items-center gap-4 text-sm font-medium text-zinc-600 sm:gap-6 dark:text-zinc-400">
           <a
-            href="https://github.com/qeeqez"
+            href="https://rixl.com"
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-zinc-900 px-3.5 py-1.5 text-xs text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            className="font-semibold text-zinc-900 transition hover:text-indigo-600 dark:text-zinc-100 dark:hover:text-indigo-400"
           >
-            GitHub
+            Rixl &rarr;
+          </a>
+          <a href="#ventures" className="transition hover:text-zinc-900 dark:hover:text-zinc-100">
+            Ventures
+          </a>
+          <a href="#about" className="transition hover:text-zinc-900 dark:hover:text-zinc-100">
+            About
+          </a>
+          <a href="#contact" className="transition hover:text-zinc-900 dark:hover:text-zinc-100">
+            Contact
           </a>
         </nav>
       </div>
