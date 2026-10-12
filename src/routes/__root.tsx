@@ -1,6 +1,7 @@
 import {HeadContent, Link, Scripts, createRootRoute} from "@tanstack/react-router";
 import {TanStackRouterDevtoolsPanel} from "@tanstack/react-router-devtools";
 import {TanStackDevtools} from "@tanstack/react-devtools";
+import {cn} from "cn";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -36,11 +37,14 @@ export const Route = createRootRoute({
 function NotFound() {
   return (
     <main className="page-wrap px-4 py-16 text-center">
-      <h1 className="text-4xl font-bold text-[var(--sea-ink)] mb-4">404 - Page Not Found</h1>
-      <p className="text-[var(--sea-ink-soft)] mb-8">The page you are looking for does not exist.</p>
+      <h1 className="mb-4 text-4xl font-bold text-[var(--sea-ink)]">404 - Page Not Found</h1>
+      <p className="mb-8 text-[var(--sea-ink-soft)]">The page you are looking for does not exist.</p>
       <Link
         to="/"
-        className="rounded-full border border-[rgba(50,143,151,0.3)] bg-[rgba(79,184,178,0.14)] px-5 py-2.5 text-sm font-semibold text-[var(--lagoon-deep)] no-underline transition hover:bg-[rgba(79,184,178,0.24)]"
+        className={cn(
+          "rounded-full border border-[rgba(50,143,151,0.3)] bg-[rgba(79,184,178,0.14)]",
+          "px-5 py-2.5 text-sm font-semibold text-[var(--lagoon-deep)] no-underline transition hover:bg-[rgba(79,184,178,0.24)]"
+        )}
       >
         Back to Home
       </Link>
@@ -55,7 +59,7 @@ function RootDocument({children}: {children: React.ReactNode}) {
         <script dangerouslySetInnerHTML={{__html: THEME_INIT_SCRIPT}} />
         <HeadContent />
       </head>
-      <body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(79,184,178,0.24)]">
+      <body className={cn("font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(79,184,178,0.24)]")}>
         <Header />
         {children}
         <Footer />
