@@ -55,16 +55,19 @@ The project includes a ready-to-use [`wrangler.json`](./wrangler.json) configura
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "maxsosnovsky",
   "compatibility_date": "2026-10-12",
+  "preview_urls": true,
+  "previews": {},
   "assets": {
     "directory": "./dist/client",
+    "html_handling": "auto-trailing-slash",
     "not_found_handling": "single-page-application"
   }
 }
 ```
 
 - Static assets are uploaded directly from `dist/client`.
-- `not_found_handling: "single-page-application"` serves `/index.html` on unmatched paths, giving you instant client-side routing fallback without any server workers.
-- A `public/_redirects` file is also included for compatibility across edge platforms.
+- `html_handling: "auto-trailing-slash"` correctly handles URLs with or without trailing slashes for static pages.
+- `not_found_handling: "single-page-application"` serves `/index.html` on unmatched paths natively.
 
 To deploy:
 
