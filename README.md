@@ -1,4 +1,4 @@
-# maxsosnovsky.com
+# maxsosnovsky
 
 A fully static, prerendered website with Single-Page Application (SPA) fallback, built with **Vite+** (`vp`), **TanStack Start**, **React 19**, and **Tailwind CSS v4**, powered by **Bun** under the hood and configured for zero-server deployment to **Cloudflare Workers**.
 
@@ -53,7 +53,7 @@ The project includes a ready-to-use [`wrangler.json`](./wrangler.json) configura
 ```json
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "maxsosnovsky-com",
+  "name": "maxsosnovsky",
   "compatibility_date": "2026-10-12",
   "assets": {
     "directory": "./dist/client",
