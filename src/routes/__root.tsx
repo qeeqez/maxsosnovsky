@@ -22,11 +22,20 @@ export const Route = createRootRoute({
       {
         title: "Max Sosnovsky",
       },
+      {
+        name: "robots",
+        content: "index, follow",
+      },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "sitemap",
+        type: "application/xml",
+        href: "/sitemap.xml",
       },
     ],
   }),
