@@ -18,8 +18,8 @@ const CSP_DIRECTIVES = [
 const ROOT_META = [
   {charSet: "utf-8"},
   {name: "viewport", content: "width=device-width, initial-scale=1"},
-  {title: "Max Sosnovsky — Founder & CEO"},
-  {name: "description", content: "Personal website, projects, and work of Max Sosnovsky."},
+  {title: "Max Sosnovsky — Founder & CEO, Rixl"},
+  {name: "description", content: "Max Sosnovsky is the Founder & CEO of Rixl, building high-performance media infrastructure."},
   {name: "theme-color", content: "#09090b"},
   {name: "robots", content: "index, follow"},
   {"http-equiv": "Content-Security-Policy", content: CSP_DIRECTIVES},
@@ -52,7 +52,7 @@ function buildStructuredData() {
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
         name: "Max Sosnovsky",
-        description: "Personal website, projects, and work of Max Sosnovsky.",
+        description: "Official website of Max Sosnovsky — Founder & CEO of Rixl.",
         publisher: {
           "@id": `${SITE_URL}/#person`,
         },
@@ -61,8 +61,15 @@ function buildStructuredData() {
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
         name: "Max Sosnovsky",
+        jobTitle: "Founder & CEO",
+        worksFor: {
+          "@type": "Organization",
+          name: "Rixl",
+          url: "https://rixl.com",
+        },
         url: SITE_URL,
-        sameAs: ["https://github.com/qeeqez"],
+        email: "mailto:max@rixl.com",
+        sameAs: ["https://github.com/qeeqez", "https://x.com/qeeqez", "https://www.linkedin.com/in/qeeqez/"],
       },
     ],
   };

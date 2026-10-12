@@ -1,34 +1,41 @@
 # Max Sosnovsky
 
-> Founder & CEO
+> Founder & CEO, Rixl
 
-Building high-performance technology platforms, developer systems, and next-generation infrastructure.
+Building [Rixl](https://rixl.com) — the modern media platform for video, image, and feed infrastructure. Focused on high-scale distributed systems, edge execution, and developer platforms.
 
+## Contact & Links
+
+- **Company**: [https://rixl.com](https://rixl.com)
+- **Email**: [max@rixl.com](mailto:max@rixl.com)
+- **X / Twitter**: [https://x.com/qeeqez](https://x.com/qeeqez)
+- **LinkedIn**: [https://www.linkedin.com/in/qeeqez/](https://www.linkedin.com/in/qeeqez/)
 - **GitHub**: [https://github.com/qeeqez](https://github.com/qeeqez)
 
-## Featured Projects
+## Ventures & Initiatives
 
-### rixl
+### Rixl
 
-Modern developer platforms, cloud automation, and next-gen frontend application infrastructure.
+The media platform for teams building video, image, and feed experiences. Providing developer APIs, edge delivery, and modern cloud media infrastructure.
 
-- **Technologies**: TypeScript, React, Cloudflare, Vite
+- **Website**: [https://rixl.com](https://rixl.com)
+- **Focus**: Media Infrastructure, Video & Images, Edge Network, Developer Platform
 
 ### maxsosnovsky.com
 
-High-speed personal website with build-time SSR, LLM documentation feeds, and full SEO optimization.
+Autonomous personal domain engineered with TanStack Start, build-time SSR, automated GEO/LLM mirrors, and zero-runtime overhead.
 
-- **Technologies**: TanStack Start, React 19, Bun, Tailwind CSS
 - **Source**: [https://github.com/qeeqez/maxsosnovsky](https://github.com/qeeqez/maxsosnovsky)
+- **Technologies**: TanStack Start, React 19, Bun, Tailwind CSS
 
-### Developer Tooling & CLI Utilities
+### Systems & Infrastructure Tooling
 
-Internal automation libraries, code generation, and developer productivity tooling.
+High-throughput CLI tools, automation engines, and distributed workflows designed for reliability and developer productivity.
 
-- **Technologies**: Rust, TypeScript, Node.js, Bun
+- **Technologies**: Rust, TypeScript, Cloudflare Workers, Distributed Systems
 
-## Technical Focus
+## Engineering & Strategic Focus
 
-- **Languages & Runtimes**: TypeScript, JavaScript, Rust, Node.js, Bun, SQL, HTML/CSS
-- **Frontend & Architecture**: React 19, TanStack Start / Router, Next.js, Tailwind CSS, Vite / Vite+
-- **Backend & Infrastructure**: Cloudflare Workers, PostgreSQL, SQLite, Redis, Docker, REST / RPC APIs
+- **Media & Edge Architecture**: Distributed CDN / Edge, Real-Time Processing, Video Transcoding, Edge Compute
+- **Developer Platforms**: Type-Safe Protocols, Tooling & CLIs, Full-Stack Frameworks, API Design
+- **Systems Engineering**: Rust & TypeScript, Cloudflare Workers, Distributed Storage, Micro-architectures
