@@ -1,4 +1,8 @@
 import {HeadContent, Scripts, createRootRoute} from "@tanstack/react-router";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
+import appCss from "../styles.css?url";
 
 const SITE_URL = process.env.SITE_URL || "https://maxsosnovsky.com";
 
@@ -14,8 +18,9 @@ const CSP_DIRECTIVES = [
 const ROOT_META = [
   {charSet: "utf-8"},
   {name: "viewport", content: "width=device-width, initial-scale=1"},
-  {title: "Max Sosnovsky"},
-  {name: "theme-color", content: "#0f2027"},
+  {title: "Max Sosnovsky — Software Engineer"},
+  {name: "description", content: "Personal website, projects, and portfolio of Max Sosnovsky."},
+  {name: "theme-color", content: "#09090b"},
   {name: "robots", content: "index, follow"},
   {"http-equiv": "Content-Security-Policy", content: CSP_DIRECTIVES},
 ];
@@ -27,6 +32,7 @@ const ROOT_LINKS = [
   {rel: "apple-touch-icon", href: "/apple-icon.png"},
   {rel: "mask-icon", href: "/mask-icon.svg", color: "#000000"},
   {rel: "manifest", href: "/manifest.json"},
+  {rel: "stylesheet", href: appCss},
   {rel: "sitemap", type: "application/xml", href: "/sitemap.xml"},
   {rel: "alternate", type: "text/plain", href: "/llms.txt", title: "LLMs.txt"},
   {rel: "alternate", type: "text/plain", href: "/llms-full.txt", title: "LLMs-full.txt"},
@@ -86,22 +92,31 @@ export const Route = createRootRoute({
 
 function NotFound() {
   return (
-    <main>
-      <h1>404 - Page Not Found</h1>
-      <p>The page you are looking for does not exist.</p>
-      <a href="/">Back to Home</a>
+    <main className="mx-auto max-w-4xl px-6 py-24 text-center">
+      <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">404 - Page Not Found</h1>
+      <p className="mt-4 text-zinc-600 dark:text-zinc-400">The page you are looking for does not exist.</p>
+      <a
+        href="/"
+        className="mt-6 inline-block rounded-lg bg-zinc-900 px-4 py-2 text-sm font-semibold text-white dark:bg-zinc-100 dark:text-zinc-900"
+      >
+        Back to Home
+      </a>
     </main>
   );
 }
 
-function RootDocument({children}: {children: React.ReactNode}) {
+function RootDocument({children}: {readonly children: React.ReactNode}) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
-      <body>
-        {children}
+      <body className="min-h-screen bg-white text-zinc-900 antialiased selection:bg-zinc-200 dark:bg-zinc-950 dark:text-zinc-100 dark:selection:bg-zinc-800">
+        <Navbar />
+        <main className="mx-auto max-w-4xl px-6">{children}</main>
+        <div className="mx-auto max-w-4xl px-6">
+          <Footer />
+        </div>
         <Scripts />
       </body>
     </html>
