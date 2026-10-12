@@ -6,6 +6,13 @@ import {tanstackStart} from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
+const MD_PAGES = [
+  {path: "/index.md", sitemap: {exclude: true}},
+  {path: "/about.md", sitemap: {exclude: true}},
+  {path: "/llms.txt", sitemap: {exclude: true}},
+  {path: "/llms-full.txt", sitemap: {exclude: true}},
+];
+
 const config = defineConfig({
   staged: {
     "*": "vp check --fix",
@@ -86,6 +93,7 @@ const config = defineConfig({
     devtools(),
     tailwindcss(),
     tanstackStart({
+      pages: MD_PAGES,
       prerender: {
         enabled: true,
         autoSubfolderIndex: true,
