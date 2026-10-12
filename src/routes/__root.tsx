@@ -9,52 +9,28 @@ import appCss from "../styles.css?url";
 
 const THEME_INIT_SCRIPT = `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'auto';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`;
 
+const ROOT_META = [
+  {charSet: "utf-8"},
+  {name: "viewport", content: "width=device-width, initial-scale=1"},
+  {title: "Max Sosnovsky"},
+  {name: "robots", content: "index, follow"},
+];
+
+const ROOT_LINKS = [
+  {rel: "icon", href: "/favicon.ico", sizes: "32x32"},
+  {rel: "icon", type: "image/svg+xml", href: "/favicon.svg"},
+  {rel: "icon", type: "image/png", href: "/icon.png"},
+  {rel: "apple-touch-icon", href: "/apple-icon.png"},
+  {rel: "stylesheet", href: appCss},
+  {rel: "sitemap", type: "application/xml", href: "/sitemap.xml"},
+  {rel: "alternate", type: "text/plain", href: "/llms.txt", title: "LLMs.txt"},
+  {rel: "alternate", type: "text/plain", href: "/llms-full.txt", title: "LLMs-full.txt"},
+];
+
 export const Route = createRootRoute({
   head: () => ({
-    meta: [
-      {
-        charSet: "utf-8",
-      },
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
-      },
-      {
-        title: "Max Sosnovsky",
-      },
-      {
-        name: "robots",
-        content: "index, follow",
-      },
-    ],
-    links: [
-      {
-        rel: "icon",
-        type: "image/svg+xml",
-        href: "/favicon.svg",
-      },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      {
-        rel: "sitemap",
-        type: "application/xml",
-        href: "/sitemap.xml",
-      },
-      {
-        rel: "alternate",
-        type: "text/plain",
-        href: "/llms.txt",
-        title: "LLMs.txt",
-      },
-      {
-        rel: "alternate",
-        type: "text/plain",
-        href: "/llms-full.txt",
-        title: "LLMs-full.txt",
-      },
-    ],
+    meta: ROOT_META,
+    links: ROOT_LINKS,
   }),
   notFoundComponent: NotFound,
   shellComponent: RootDocument,
