@@ -10,8 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as AboutDotmdRouteImport } from './routes/about[.]md'
 import { Route as IndexDotmdRouteImport } from './routes/index[.]md'
 import { Route as LlmsFullDottxtRouteImport } from './routes/llms-full[.]txt'
 import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
@@ -19,16 +17,6 @@ import { Route as LlmsDottxtRouteImport } from './routes/llms[.]txt'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutDotmdRoute = AboutDotmdRouteImport.update({
-  id: '/about.md',
-  path: '/about.md',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexDotmdRoute = IndexDotmdRouteImport.update({
@@ -49,16 +37,12 @@ const LlmsDottxtRoute = LlmsDottxtRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/about.md': typeof AboutDotmdRoute
   '/index.md': typeof IndexDotmdRoute
   '/llms-full.txt': typeof LlmsFullDottxtRoute
   '/llms.txt': typeof LlmsDottxtRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/about.md': typeof AboutDotmdRoute
   '/index.md': typeof IndexDotmdRoute
   '/llms-full.txt': typeof LlmsFullDottxtRoute
   '/llms.txt': typeof LlmsDottxtRoute
@@ -66,33 +50,20 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/about.md': typeof AboutDotmdRoute
   '/index.md': typeof IndexDotmdRoute
   '/llms-full.txt': typeof LlmsFullDottxtRoute
   '/llms.txt': typeof LlmsDottxtRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    '/' | '/about' | '/about.md' | '/index.md' | '/llms-full.txt' | '/llms.txt'
+  fullPaths: '/' | '/index.md' | '/llms-full.txt' | '/llms.txt'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    '/' | '/about' | '/about.md' | '/index.md' | '/llms-full.txt' | '/llms.txt'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/about.md'
-    | '/index.md'
-    | '/llms-full.txt'
-    | '/llms.txt'
+  to: '/' | '/index.md' | '/llms-full.txt' | '/llms.txt'
+  id: '__root__' | '/' | '/index.md' | '/llms-full.txt' | '/llms.txt'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  AboutDotmdRoute: typeof AboutDotmdRoute
   IndexDotmdRoute: typeof IndexDotmdRoute
   LlmsFullDottxtRoute: typeof LlmsFullDottxtRoute
   LlmsDottxtRoute: typeof LlmsDottxtRoute
@@ -105,20 +76,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about.md': {
-      id: '/about.md'
-      path: '/about.md'
-      fullPath: '/about.md'
-      preLoaderRoute: typeof AboutDotmdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/index.md': {
@@ -147,8 +104,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  AboutDotmdRoute: AboutDotmdRoute,
   IndexDotmdRoute: IndexDotmdRoute,
   LlmsFullDottxtRoute: LlmsFullDottxtRoute,
   LlmsDottxtRoute: LlmsDottxtRoute,

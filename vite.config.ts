@@ -8,7 +8,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 const MD_PAGES = [
   {path: "/index.md", sitemap: {exclude: true}},
-  {path: "/about.md", sitemap: {exclude: true}},
   {path: "/llms.txt", sitemap: {exclude: true}},
   {path: "/llms-full.txt", sitemap: {exclude: true}},
 ];
