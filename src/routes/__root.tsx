@@ -37,6 +37,18 @@ export const Route = createRootRoute({
         type: "application/xml",
         href: "/sitemap.xml",
       },
+      {
+        rel: "alternate",
+        type: "text/plain",
+        href: "/llms.txt",
+        title: "LLMs.txt",
+      },
+      {
+        rel: "alternate",
+        type: "text/plain",
+        href: "/llms-full.txt",
+        title: "LLMs-full.txt",
+      },
     ],
   }),
   notFoundComponent: NotFound,

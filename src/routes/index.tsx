@@ -1,7 +1,19 @@
 import {createFileRoute} from "@tanstack/react-router";
 import {cn} from "cn";
 
-export const Route = createFileRoute("/")({component: App});
+export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [
+      {
+        rel: "alternate",
+        type: "text/markdown",
+        href: "/index.md",
+        title: "Home Markdown",
+      },
+    ],
+  }),
+  component: App,
+});
 
 const FEATURES: readonly (readonly [string, string])[] = [
   ["Type-Safe Routing", "Routes and links stay in sync across every page."],
@@ -15,7 +27,19 @@ function HeroSection() {
     <section className={cn("island-shell rise-in relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-14")}>
       <div className="pointer-events-none absolute -left-20 -top-24 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(79,184,178,0.32),transparent_66%)]" />
       <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(47,106,74,0.18),transparent_66%)]" />
-      <p className="island-kicker mb-3">TanStack Start Base Template</p>
+      <div className="mb-3 flex items-center justify-between">
+        <p className="island-kicker m-0">TanStack Start Base Template</p>
+        <a
+          href="/index.md"
+          className={cn(
+            "rounded-md border border-[rgba(50,143,151,0.3)] bg-[rgba(79,184,178,0.12)] px-2.5 py-1",
+            "text-xs font-mono font-medium text-[var(--lagoon-deep)] transition hover:bg-[rgba(79,184,178,0.22)]"
+          )}
+          title="View this page in Markdown format"
+        >
+          index.md
+        </a>
+      </div>
       <h1 className="display-title mb-5 max-w-3xl text-4xl leading-[1.02] font-bold tracking-tight text-[var(--sea-ink)] sm:text-6xl">
         Start simple, ship quickly.
       </h1>

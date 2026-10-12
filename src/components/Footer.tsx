@@ -5,6 +5,15 @@ export default function Footer() {
     <footer className="mt-20 border-t border-[var(--line)] px-4 pb-14 pt-10 text-[var(--sea-ink-soft)]">
       <div className="page-wrap flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
         <p className="m-0 text-sm">&copy; {CURRENT_YEAR} Your name here. All rights reserved.</p>
+        <div className="flex items-center gap-3 text-xs">
+          <a href="/llms.txt" className="transition hover:text-[var(--sea-ink)]">
+            llms.txt
+          </a>
+          <span aria-hidden="true">&bull;</span>
+          <a href="/llms-full.txt" className="transition hover:text-[var(--sea-ink)]">
+            llms-full.txt
+          </a>
+        </div>
         <p className="island-kicker m-0">Built with TanStack Start</p>
       </div>
       <div className="mt-4 flex justify-center gap-4">
