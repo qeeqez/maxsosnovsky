@@ -21,6 +21,8 @@ const ROOT_LINKS = [
   {rel: "icon", type: "image/svg+xml", href: "/favicon.svg"},
   {rel: "icon", type: "image/png", href: "/icon.png"},
   {rel: "apple-touch-icon", href: "/apple-icon.png"},
+  {rel: "mask-icon", href: "/mask-icon.svg", color: "#000000"},
+  {rel: "manifest", href: "/manifest.json"},
   {rel: "stylesheet", href: appCss},
   {rel: "sitemap", type: "application/xml", href: "/sitemap.xml"},
   {rel: "alternate", type: "text/plain", href: "/llms.txt", title: "LLMs.txt"},
