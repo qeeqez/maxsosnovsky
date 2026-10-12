@@ -1,16 +1,9 @@
 export default function Hero() {
   return (
     <section className="py-16 sm:py-24">
-      <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-        Available for new projects & collaborations
-      </div>
-      <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-900 sm:text-6xl dark:text-zinc-50">
-        Software Engineer &amp; Systems Architect
-      </h1>
+      <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-6xl dark:text-zinc-50">Founder &amp; CEO</h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
-        Building high-performance web applications, developer tooling, and distributed systems with a focus on type safety, clean
-        architecture, and user experience.
+        Building high-performance technology platforms, developer systems, and next-generation infrastructure.
       </p>
       <div className="mt-8 flex flex-wrap items-center gap-4">
         <a
